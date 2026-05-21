@@ -1,5 +1,5 @@
 # AtividadeDePLA
-# 🧮 Calculadora Algebrística de Matrizes
+# Calculadora Algebrística de Matrizes
 
 Uma aplicação web interativa e responsiva desenvolvida para realizar operações complexas de Álgebra Linear de forma visual e intuitiva. O projeto gera matrizes dinâmicas com base nas dimensões escolhidas pelo usuário e processa cálculos aritméticos, determinantes avançados e resolução de sistemas lineares.
 
