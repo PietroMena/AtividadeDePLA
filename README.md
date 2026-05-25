@@ -1,21 +1,21 @@
 # AtividadeDePLA
-# Calculadora Algebrística de Matrizes
+# Calculadora de Matrizes
 
-Uma aplicação web interativa e responsiva desenvolvida para realizar operações complexas de Álgebra Linear de forma visual e intuitiva. O projeto gera matrizes dinâmicas com base nas dimensões escolhidas pelo usuário e processa cálculos aritméticos, determinantes avançados e resolução de sistemas lineares.
+Uma aplicação web interativa e responsiva desenvolvida para realizar operações complexas de Álgebra Linear de forma visual e intuitiva. O projeto gera matrize, que vão de acordo com o que o usuário digita e faz os calculos.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ### 1. Operações Básicas e Aritmética
 *   **Soma e Subtração:** Operações elemento a elemento entre duas matrizes de dimensões equivalentes.
-*   **Multiplicação de Matrizes (Produto Matricial):** Multiplicação clássica de linhas por colunas com validação rigorosa de dimensões.
-*   **Multiplicação por Escalar:** Multiplica todos os elementos da Matriz A por um número real constante ($K$).
+*   **Multiplicação de Matrizes:** Multiplicação clássica de linhas por colunas com validação das dimensões.
+*   **Multiplicação por Escalar:** Multiplica todos os elementos da Matriz A por um número real constante.
 
 ### 2. Cálculo de Determinantes Avançado
 O algoritmo analisa a ordem da matriz quadrada e escolhe a abordagem computacional mais performática:
 *   **Ordem 1x1, 2x2 e 3x3:** Resolução direta via Regra de Sarrus.
-*   **Ordem 4x4 ou superior:** Cálculo automatizado utilizando o **Teorema de Laplace** com recursividade estruturada e otimização de varredura para elementos nulos (zero).
+*   **Ordem 4x4 ou superior:** Cálculo automatizado utilizando o **Teorema de Laplace**.
 
 ### 3. Resolução de Sistemas Lineares (Método de Gauss)
 *   Transforma a matriz em uma matriz ampliada e aplica a **Eliminação de Gauss** (Escalonamento).
@@ -24,7 +24,7 @@ O algoritmo analisa a ordem da matriz quadrada e escolhe a abordagem computacion
 
 ---
 
-## 💻 Interface Visual
+## Interface Visual
 
 O design foi construído com foco na experiência do usuário e usabilidade:
 *   **Grades Dinâmicas:** Layout construído em *CSS Grid* que se adapta perfeitamente ao tamanho da matriz selecionada ($2\times2$, $3\times3$, $5\times5$, etc.).
@@ -33,7 +33,7 @@ O design foi construído com foco na experiência do usuário e usabilidade:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 *   **HTML5:** Estruturação semântica da aplicação.
 *   **CSS3:** Design moderno, variáveis nativas, efeitos de foco e *CSS Grid Layout*.
@@ -41,7 +41,7 @@ O design foi construído com foco na experiência do usuário e usabilidade:
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 ├── index.html      # Estrutura e marcação dos cards da interface
