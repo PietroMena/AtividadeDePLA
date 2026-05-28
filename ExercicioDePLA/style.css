@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f4f7f9;
+    background-color: #ffffff;
     color: #333;
     padding: 20px;
     display: flex;
@@ -40,7 +40,7 @@ header p {
 
 /* Estilização dos Cards (Containers) */
 section {
-    background: #a03391;
+    background: #417a73;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -79,7 +79,7 @@ input[type="number"]:focus {
 .input-group label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #7f8c8d;
+    color: #ffffff;
 }
 
 /* Alinhamento da Configuração */
@@ -108,21 +108,21 @@ button:hover {
 }
 
 .btn-primary {
-    background-color: #3498db;
-    color: white;
+    background-color: #fffdfd;
+    color: rgb(0, 0, 0);
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: #b4bbc0;
 }
 
 .btn-secondary {
-    background-color: #2ecc71;
-    color: white;
+    background-color: #fffdfd;
+    color: rgb(0, 0, 0);
 }
 
 .btn-secondary:hover {
-    background-color: #27ae60;
+    background-color: #b4bbc0;
 }
 
 /* Área de trabalho (Grades lado a lado) */
