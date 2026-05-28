@@ -178,7 +178,7 @@ function calcularLaplace(m) {
 
     let det = 0;
 
-    // Vamos fixar a primeira linha (i = 0) para calcular os cofatores
+   
     for (let j = 0; j < ordem; j++) {
         let elemento = m[0][j];
         
