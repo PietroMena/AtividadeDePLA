@@ -108,7 +108,7 @@ function produtoDeMatrizes(matrizA, matrizB) {
     let matrizResultado = [];
 
     if (matrizA[0].length !== matrizB.length) {
-        return 'Erro: o número de colunas da matriz B deve ser igual ao número de linhas da matriz A.';
+        return 'Erro: o número de colunas da matriz A deve ser igual ao número de linhas da matriz B.';
     }
 
     for (let i = 0; i < matrizA.length; i++) {
@@ -275,3 +275,112 @@ function resolverSistemaGauss(matrizAmpliada) {
 
     return { tipo: "SPD", mensagem: "Sistema Possível e Determinado.", solucoes: solucoesFormatadas };
 }
+
+function mostrarResultado(titulo, conteudo) {
+    const painel = document.getElementById('painelResultado');
+    painel.innerHTML = `
+        <div class="resultado-titulo">${titulo}</div>
+        <div class="resultado-conteudo">${conteudo}</div>
+    `;
+}
+
+function matrizParaHtml(matriz) {
+    if (typeof matriz === 'string') {
+        return `<p class="mensagem-erro">${matriz}</p>`;
+    }
+
+    if (typeof matriz === 'number') {
+        return `<p class="resultado-numero">${matriz}</p>`;
+    }
+
+    return `
+        <div class="matriz-display">
+            ${matriz.map(linha => `
+                <div class="matriz-linha">
+                    ${linha.map(valor => `<span class="matriz-celula">${Number.isFinite(valor) ? valor.toFixed(2).replace(/\.00$/, '') : valor}</span>`).join('')}
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function executarSoma() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+    const matrizB = obterMatrizDaTabela('gradeB');
+    const resultado = somarMatrizes(matrizA, matrizB);
+    mostrarResultado('Soma de A + B', matrizParaHtml(resultado));
+}
+
+function executarSubtracao() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+    const matrizB = obterMatrizDaTabela('gradeB');
+    const resultado = subtrairMatrizes(matrizA, matrizB);
+    mostrarResultado('Subtração de A - B', matrizParaHtml(resultado));
+}
+
+function executarProduto() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+    const matrizB = obterMatrizDaTabela('gradeB');
+    const resultado = produtoDeMatrizes(matrizA, matrizB);
+    mostrarResultado('Produto de A × B', matrizParaHtml(resultado));
+}
+
+function executarDetA() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+    mostrarResultado('Determinante de A', matrizParaHtml(calcularDeterminante(matrizA)));
+}
+
+function executarDetB() {
+    const matrizB = obterMatrizDaTabela('gradeB');
+    mostrarResultado('Determinante de B', matrizParaHtml(calcularDeterminante(matrizB)));
+}
+
+function executarEscalar() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+    const escalar = Number(document.getElementById('numEscalar').value) || 0;
+    const resultado = multiplicarPorEscalar(matrizA, escalar);
+    mostrarResultado(`A × ${escalar}`, matrizParaHtml(resultado));
+}
+
+function escalonarMatriz(matriz) {
+    const copia = matriz.map(linha => [...linha]);
+    const n = copia.length;
+    const m = copia[0].length;
+
+    for (let i = 0; i < n; i++) {
+        let pivo = i;
+
+        while (pivo < n && Math.abs(copia[pivo][i]) < 1e-9) {
+            pivo++;
+        }
+
+        if (pivo === n) continue;
+
+        if (pivo !== i) {
+            [copia[i], copia[pivo]] = [copia[pivo], copia[i]];
+        }
+
+        for (let k = i + 1; k < n; k++) {
+            const fator = copia[k][i] / copia[i][i];
+            for (let j = i; j < m; j++) {
+                copia[k][j] -= fator * copia[i][j];
+            }
+        }
+    }
+
+    return copia;
+}
+
+function executarGaussA() {
+    const matrizA = obterMatrizDaTabela('gradeA');
+
+    if (matrizA.length !== matrizA[0].length) {
+        mostrarResultado('Eliminação de Gauss', matrizParaHtml('A matriz A precisa ser quadrada para aplicar Gauss.'));
+        return;
+    }
+
+    const escalonada = escalonarMatriz(matrizA);
+    mostrarResultado('Matriz escalonada de A', matrizParaHtml(escalonada));
+}
+
+gerarGrades();
