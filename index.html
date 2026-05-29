@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Matrizes Avançada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1> Calculadora de Matrizes</h1>
+            <p>Insira as dimensões, preencha os valores e escolha a operação desejada.</p>
+        </header>
+
+        <!-- Painel de Configuração de Tamanho -->
+        <section class="config-card">
+            <h2>1. Definir Dimensões</h2>
+            <div class="inputs-inline">
+                <div class="input-group">
+                    <label for="qtdLinhas">Linhas:</label>
+                    <input type="number" id="qtdLinhas" min="1" max="10" value="3">
+                </div>
+                <div class="input-group">
+                    <label for="qtdColunas">Colunas:</label>
+                    <input type="number" id="qtdColunas" min="1" max="10" value="3">
+                </div>
+                <button onclick="gerarGrades()" class="btn-primary">Criar Matrizes</button>
+            </div>
+        </section>
+
+        <!-- Área das Matrizes de Entrada -->
+        <section class="workspace">
+            <div class="matrix-box">
+                <h3>Matriz A</h3>
+                <div id="gradeA" class="grade">
+                   
+                </div>
+            </div>
+
+            <div class="matrix-box">
+                <h3>Matriz B</h3>
+                <div id="gradeB" class="grade">
+                  
+                </div>
+            </div>
+        </section>
+
+        <!-- Painel de Ações / Operações -->
+        <section class="actions-card">
+            <h2>2. Operações</h2>
+            
+            <div class="actions-grid">
+                <button onclick="executarSoma()">Somar (A + B)</button>
+                <button onclick="executarSubtracao()">Subtrair (A - B)</button>
+                <button onclick="executarProduto()">Multiplicar (A × B)</button>
+                <button onclick="executarDetA()">Det(A)</button>
+                <button onclick="executarDetB()">Det(B)</button>
+                <button onclick="executarGaussA()">Resolver Gauss (A)</button>
+            </div>
+
+            <div class="scalar-zone">
+                <div class="input-group">
+                    <label for="numEscalar">Multiplicar A por Escalar:</label>
+                    <input type="number" id="numEscalar" value="2">
+                </div>
+                <button onclick="executarEscalar()" class="btn-secondary">Multiplicar por K</button>
+            </div>
+        </section>
+
+        <section class="result-card">
+            <h2>3. Resultado</h2>
+            <div id="painelResultado" class="result-box">
+                <span class="placeholder-text">O resultado da operação aparecerá aqui...</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
